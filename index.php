@@ -11,6 +11,11 @@
             <label>Nama</label> <br>
             <input name="nama" type="text" placeholder="Masukkan nama">
         </div>
+                <div>
+            <label>NPM</label> <br>
+            <input name="npm" type="text" placeholder="Masukkan NPM">
+        </div>
+
         <div>
             <label>Alamat</label> <br>
             <input name="alamat" type="text" placeholder="Masukkan alamat">
@@ -24,15 +29,21 @@
         </div>
     </form>
 
-    <?php // membuka tag PHP
+    <br> <?php // membuka tag PHP
 
+    // Menangkap data NPM dari URL
     $nama = $_GET['nama'] ?? '';
+    $npm = $_GET['npm'] ?? '';
     $alamat = $_GET['alamat'] ?? '';
     $tanggal_lahir = $_GET['tanggal_lahir'] ?? '';
 
-    // di sini nanti kita akan tampilkan variabel $nama, $alamat, dan $tanggal_lahir
+    // Menampilkan data yang diinputkan
     if ($nama) {
         echo "<strong>Nama:</strong> {$nama} <br>";
+    }
+    
+    if ($npm) {
+        echo "<strong>NPM:</strong> {$npm} <br>";
     }
 
     if ($alamat) {
