@@ -6,7 +6,7 @@
     <title>Membuat Form Sederhana</title>
 </head>
 <body>
-    <Form>
+    <form method="GET">
         <div>
             <label>Nama</label> <br>
             <input name="nama" type="text" placeholder="Masukkan nama">
@@ -16,21 +16,33 @@
             <input name="alamat" type="text" placeholder="Masukkan alamat">
         </div>
         <div>
-            <button>Submit</button>
+            <label>Tanggal Lahir</label> <br>
+            <input name="tanggal_lahir" type="date">
         </div>
-    </Form>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
     <?php // membuka tag PHP
 
-    $nama = $_GET['nama'];
-    $alamat = $_GET['alamat'];
+    $nama = $_GET['nama'] ?? '';
+    $alamat = $_GET['alamat'] ?? '';
+    $tanggal_lahir = $_GET['tanggal_lahir'] ?? '';
 
-    // di sini nanti kita akan tampilkan variabel $nama dan $alamat
+    // di sini nanti kita akan tampilkan variabel $nama, $alamat, dan $tanggal_lahir
     if ($nama) {
         echo "<strong>Nama:</strong> {$nama} <br>";
     }
 
     if ($alamat) {
         echo "<strong>Alamat:</strong> {$alamat} <br>";
+    }
+
+    if ($tanggal_lahir) {
+        // Format tanggal menjadi dd-mm-yyyy
+        $format_tanggal = date("d-m-Y", strtotime($tanggal_lahir));
+        echo "<strong>Tanggal Lahir:</strong> {$format_tanggal} <br>";
     }
 
     // jangan lupa tutup tag PHP
